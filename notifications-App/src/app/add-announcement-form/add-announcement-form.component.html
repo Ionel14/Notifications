@@ -1,0 +1,31 @@
+<form>
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" [(ngModel)] = "title" name = "title" required>    
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input matInput placeholder="Author" [(ngModel)] = "author" name = "author" required>    
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>ImageUrl</mat-label>
+        <input matInput placeholder="imageUrl" [(ngModel)] = "imageUrl" name = "imageUrl" required>    
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Leave a message</mat-label>
+        <textarea matInput placeholder="..." [(ngModel)] = "message" name = "message"></textarea>     
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select [(value)] = "selectedCategory" matInput>
+            <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option>
+        </mat-select>     
+    </mat-form-field>
+
+    <button (click)="addAnouncement()" [routerLink]="''">Create</button>
+    <button [routerLink]="''" >Cancel</button>
+</form>

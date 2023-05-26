@@ -1,0 +1,15 @@
+<div class="app-container">
+    <app-categories (selectedCategory)="filterCategories($event)" (signal)="resetCategories()"></app-categories>
+
+    <p>
+      {{notificationMessage}}
+    </p>
+
+    <div class = "announcements" *ngFor="let announcement of filteredAnnouncements">
+      <app-announcement [title] = "announcement.title" [message] = "announcement.message" [author] = "announcement.author | author" [imageUrl]="announcement.imageUrl"></app-announcement>
+      <button (click)="deleteAnnouncement(announcement.id)">Delete</button>
+      <button [routerLink]="'/edit'" (click)="editAnnouncement(announcement.id)">Edit</button>
+    </div>
+
+    <button [routerLink]="'/add'" >Add announcement</button>
+  </div>
